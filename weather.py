@@ -1,11 +1,10 @@
 import requests
 
-# url = 'https://wttr.in/san%20francisco?nTqu&lang=en'
+url_template = 'https://wttr.in/{}?n?q?M?m?T'
 
-url_template = 'https://wttr.in/{}'
-
-article_id = input('Input location: ')
-url = url_template.format(article_id)
-response = requests.get(url)
+loc = input('Input location: ')
+lang = {'lang': 'ru'}
+url = url_template.format(loc)
+response = requests.get(url, params=lang)
 
 print(response.text)
