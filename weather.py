@@ -6,7 +6,10 @@ def check_weather(loc):
     display_properties = {'?n': '', '?q': '', '?M': '', '?m': '', '?T': '', 'lang': 'ru'}
     url = url_template.format(loc)
     response = requests.get(url, params=display_properties)
-    return response.text
+    if response.ok:
+        return response.text
+    else:
+        return None
 
 
 location_list = ['London', 'cvo', 'Череповец']
