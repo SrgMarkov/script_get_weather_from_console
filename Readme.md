@@ -1,5 +1,10 @@
-weather query function from https://wttr.in/
+## How to see the weather in the terminal
 
-you can change the desired location in location_list
+weather query function from [wttr](https://wttr.in/)
 
-if the code returns None, then the location was not found or the site is not available
+### Refinement to the code
+- you can change the desired location in location_list
+- you can see weather in terminal, only if http response is *200*. otherwise, the program will issue a **response code**
+
+### Screen output example
+![result](https://dvmn.org/media/filer_public/88/bd/88bdb306-ead2-40ae-bbde-c2e6eb9db767/weather_rezult.gif)

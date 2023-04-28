@@ -3,16 +3,20 @@ import requests
 
 def check_weather(loc):
     url_template = 'https://wttr.in/{}'
-    display_properties = {'?n': '', '?q': '', '?M': '', '?m': '', '?T': '', 'lang': 'ru'}
+    display_properties = {'n': '', 'q': '', 'M': '', 'm': '', 'T': '', 'lang': 'ru'}
     url = url_template.format(loc)
     response = requests.get(url, params=display_properties)
     if response.ok:
         return response.text
     else:
-        return None
+        return response.raise_for_status
 
 
-location_list = ['London', 'cvo', 'Череповец']
+def main():
+    location_list = ['London', 'cvo', 'Череповец']
+    for location in location_list:
+        print(check_weather(location))
 
-for location in location_list:
-    print(check_weather(location))
+
+if __name__ == '__main__':
+    main()
